@@ -1,0 +1,9 @@
+.GalleryBoard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
