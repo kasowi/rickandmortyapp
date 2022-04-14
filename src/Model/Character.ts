@@ -5,6 +5,8 @@ export type Character = {
     origin:{
         name:string;
     }
+    species:string;
+    status:string;
 
 
 }
