@@ -8,6 +8,10 @@
     font-family: "Comic Sans MS";
 }
 
+.CCard:hover {
+    border-color: hotpink;
+}
+
 h2 {
     font-size: large;
     font-family: "Comic Sans MS";
@@ -16,5 +20,21 @@ h2 {
 .CCImage img {
     max-height: 300px;
     max-width: 300px;
+}
+
+button {
+    background-color: #ffffff;
+    border: solid #3b5998;
+    border-width: 2px;
+    color: #3b5998;
+    padding: 5px 5px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #3b5998;
+    color: #ffffff;
 }
 
