@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Title from "./Components/Title";
 import GalleryBoard from "./Components/GalleryBoard";
+import {Character} from "./Model/Character";
+import CharacterCard from "./Components/CharacterCard";
 
 
-const characters = [
+const charactersResponse = [
     {
         "id": 1,
         "name": "Rick Sanchez",
@@ -1197,19 +1199,26 @@ const characters = [
 
 
 export default function App() {
-  return (
+
+    const [count, setCount] = useState<number>(0);
+    const increaseCount =  () => {
+        setCount(count + 1);
+    }
+
+
+    return (
     <div className="App">
         <div className="Header">
       <Title />
         </div>
 
         <div className="GalleryBoard">
-        <GalleryBoard characters={characters}/>
+        <GalleryBoard characters={charactersResponse}/>
         </div>
 
     </div>
   );
 }
 
-/*<GalleryBoard character={characters}/>*/
+
 
