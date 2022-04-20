@@ -15,18 +15,26 @@ export default function GalleryBoard({characters}: GalleryBoardProps){
     const onTextChange = (event: ChangeEvent<HTMLInputElement>) => {
         console.log(event.target.value)
         setFilter(event.target.value)
-        // warum funktioniert es nicht mit der Variable filter? bzw. wie kann man den Code "aufräumen"?
         setFiltered(characters.filter(character => character.name.toLowerCase().includes(event.target.value.toLowerCase())))
         console.log(filtered)
     }
 
-
     return <div className={"Gallery"}>
         <div>Type to filter:</div>
         <input id={"filter"} name={"filter"} type={"text"} value={filter} onChange={onTextChange}/>
-        <div className={"GalleryBoard"}>
-            {filtered.map( obj => <CharacterCard character={obj} />)}
-        </div>
-        </div>
+        {(filtered.length > 0) ?
+            <div className={"GalleryBoard"}>
+                {filtered.map(obj => <CharacterCard character={obj}/>)}
+            </div>
 
+            : <div className={"FilterError"}>
+                <p>This filter inquiry is invalid.</p>
+            </div>
+        }
+
+        </div>
 }
+
+
+
+
