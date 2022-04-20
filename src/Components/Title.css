@@ -1,6 +1,22 @@
+.title {
+    text-align: center;
+    background-color: #a3d5cd;
+    margin-top: 50px;
+}
+
+.title-header {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
 
 
-.title > img {
+img {
     max-width: 40%;
     height: auto;
 }
