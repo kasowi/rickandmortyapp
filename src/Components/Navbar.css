@@ -1,0 +1,28 @@
+.navbar {
+    background-color: darkslategrey;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-bottom: 70px;
+}
+
+.navbar a {
+    float: left;
+    color: #ffffff;
+    text-align: center;
+    font-family: "Verdana", sans-serif;
+    padding: 14px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    background-color: #597272;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.navbar a.active {
+    font-weight: bold;
+}

@@ -1,45 +1,27 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import Title from "./Components/Title";
-import GalleryBoard from "./Components/GalleryBoard";
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import {Character} from "./Model/Character";
-import CharacterCard from "./Components/CharacterCard";
+import Gallery from "./pages/Gallery";
+import Home from "./pages/Home";
+import Imprint from './pages/Imprint';
+import CharacterDetailsPage from "./pages/CharacterDetailsPage";
 
 
-
-export default function App() {
-
+function App() {
     const [characters, setCharacters] = useState<Character[]>([]);
-    const fetchCharacters = () => {
-        return fetch ('https://rickandmortyapi.com/api/character')
-            .then(response => {
-                if (response.ok) {
-                    return response.json()
-                }
-                throw new Error("Network error")
-            })
-            .catch(console.error)
-    }
-
-    useEffect(() => {
-        fetchCharacters()
-            .then(body => {
-                setCharacters(body.results)
-                console.log(body.results)
-            })
-    }, [])
 
     return (
-        <div className="App">
-            <div className="Header">
-                <Title />
-            </div>
+      <BrowserRouter>
+          <Routes>
+              <Route path ={"/"} element={<Home />}/>
+              <Route path={"/gallery"} element={<Gallery characters={characters} setCharacters={setCharacters}/>}/>
+              <Route path={"/imprint"} element={<Imprint />}/>
+              <Route path ={"character/:id"} element={<CharacterDetailsPage characters={characters}/>}/>
+          </Routes>
+      </BrowserRouter>
+    )
 
-            <div className="GalleryBoard">
-            {characters.length > 0 ?
-                    (<GalleryBoard characters={characters} />) : (<div></div>)
-            }
-                </div>
-        </div>
-    );
 }
+
+export default App;
